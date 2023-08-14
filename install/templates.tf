@@ -30,6 +30,8 @@ data "template_file" "install_config_yaml" {
   template = <<-EOF
 apiVersion: v1
 baseDomain: ${var.domain}
+credentialsMode: Manual
+publish: Internal
 compute:
 - hyperthreading: Enabled
   name: worker
@@ -61,6 +63,11 @@ networking:
 platform:
   aws:
     region: ${var.aws_region}
+    hostedZone: "Z08394693BNEPL3D6QV3K"
+    subnets:
+    - subnet-088fa6e79af972cfc
+    - subnet-0aeba2f244444a9e8
+    - subnet-0eccbd90da3afeb75
 pullSecret: '${file(var.openshift_pull_secret)}'
 sshKey: '${local.public_ssh_key}'
 %{if var.airgapped["enabled"]}imageContentSources:
