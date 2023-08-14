@@ -14,7 +14,7 @@ resource "aws_vpc_endpoint" "private_ec2" {
      aws_security_group.private_ec2_api.id
   ]
 
-  subnet_ids =  aws_subnet.private_subnet.*.id
+  subnet_ids =  ["subnet-088fa6e79af972cfc", "subnet-0aeba2f244444a9e8", "subnet-0eccbd90da3afeb75"]
   tags =  merge(
     var.tags,
     tomap({
@@ -41,7 +41,7 @@ resource "aws_vpc_endpoint" "private_ecr" {
      aws_security_group.private_ecr_api[0].id
   ]
 
-  subnet_ids =  aws_subnet.private_subnet.*.id
+  subnet_ids =  ["subnet-088fa6e79af972cfc", "subnet-0aeba2f244444a9e8", "subnet-0eccbd90da3afeb75"]
   tags =  merge(
     var.tags,
     tomap({
@@ -68,7 +68,7 @@ resource "aws_vpc_endpoint" "private_elb" {
      aws_security_group.private_elb_api[0].id
   ]
 
-  subnet_ids =  aws_subnet.private_subnet.*.id
+  subnet_ids =  ["subnet-088fa6e79af972cfc", "subnet-0aeba2f244444a9e8", "subnet-0eccbd90da3afeb75"]
   tags =  merge(
     var.tags,
     tomap({
