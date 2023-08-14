@@ -16,3 +16,5 @@ installer-files/**
 .DS_Store
 
 installer-files
+bin
+ecr
