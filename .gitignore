@@ -14,3 +14,5 @@ installer-files/**
 
 # OS X files
 .DS_Store
+
+installer-files
